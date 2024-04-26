@@ -1,0 +1,170 @@
+#root {
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
+  /* text-align: center; */
+  padding: 0;
+  margin: 0;
+
+}
+
+body {
+  padding: 10px;
+  margin: 0;
+  background-color: black;
+  color: #fff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.reuducer-component {
+  height: 100%;
+  width: 100%;
+  /* background-color: yellow;
+  color:#fff */
+  padding-top: 2rem;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+}
+
+.reuducer-component form {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.reuducer-component span {
+  font-size: 18px;
+  margin-right: 15px;
+}
+
+.reuducer-component input {
+  height: 25px;
+  font-size: 18px;
+  margin-right: 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+.reuducer-component button {
+  height: 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  background-color: dodgerblue;
+  color: #fff;
+  padding: 0 20px;
+}
+
+
+.reuducer-component .display-tasks {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reuducer-component .display-tasks .task-card {
+  padding: 20px 0;
+  background-color: grey;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  border: solid 3px dodgerblue;
+
+  animation-name: taskHover;
+}
+
+.reuducer-component .display-tasks .task-card:hover {
+  padding: 20px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  border: solid 3px dodgerblue;
+  /* background-color: yellow; */
+
+}
+@keyframes taskHover {
+  0%   {background-color:red; }
+  25%  {background-color:yellow; }
+  50%  {background-color:blue;}
+  75%  {background-color:green; }
+  100% {background-color:red; }
+}
+.reuducer-component .display-tasks .task-card .text-wrapper {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.reuducer-component .display-tasks .task-card .text-wrapper .label-wraper {
+  width: 100px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.reuducer-component .display-tasks .task-card label {
+  color: crimson;
+  font-size: 30px;
+  margin: 0px;
+}
+
+.reuducer-component .display-tasks .task-card span {
+  font-size: 30px;
+}
+
+button {
+  /* background: dodgerblue; */
+  padding: 0 20px;
+}
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: dodgerblue;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+  background-color: dodgerblue;
+}
+button:focus,
+button:focus-visible {
+  outline: 2px auto white;
+}
+input {
+  border-radius: 8px;
+  border: 1px solid black;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #ffffff;
+  /* cursor: pointer; */
+  transition: border-color 0.25s;
+  color: black;
+}
+input:hover {
+  border-color: #646cff;
+  background-color: #ffffff;
+  color: black;
+
+}
+input:focus,
+input:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+  color: black;
+
+}
