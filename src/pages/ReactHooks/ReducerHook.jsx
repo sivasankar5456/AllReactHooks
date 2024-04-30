@@ -4,22 +4,24 @@ import { useReducer, useRef } from "react";
 
 const reducer = (state, action) => {
   switch (action.type) {
-    // case "ADD_TASK":
-    //   return [...state];
-
-    // or
     case "ADD_TASK":
       return [...state, action.payload];
 
-    // case "COMPLETE_TASK":    
-    //   return [...state];
-    // or
-    case "COMPLETE_TASK":    
-    return [...state];
+    case "COMPLETE_TASK":
+      state?.forEach((item) => {
+        if (item.id == action.payload) {
+          item.status = "complete";
+        }
+      });
+
+      return [...state];
+
+    case "DELETE_TASK":
+      const deleteTask = state?.filter((item) => item.id != action.payload);
+      return deleteTask;
 
     default:
       return state;
-      break;
   }
 };
 
@@ -32,7 +34,7 @@ const ReducerHook = () => {
     },
     {
       id: 2,
-      task: "watch tv",
+      task: "watch youtube",
       status: "incomplete",
     },
   ];
@@ -63,13 +65,13 @@ const ReducerHook = () => {
     inputRef.current.value = "";
   };
 
-  const handleUpadateStatus=(index,id) =>{
+  const handleUpadateStatus = (index, id) => {
     // state[index].status = "complete"
     // dispatch({ type: "COMPLETE_TASK" });
     // or
 
-    dispatch({ type: "COMPLETE_TASK", payload: id})
-}
+    dispatch({ type: "COMPLETE_TASK", payload: id });
+  };
   //   console.log(state);
   return (
     <div className="reuducer-component">
@@ -89,20 +91,22 @@ const ReducerHook = () => {
                   <label>Status : </label>
                 </div>
                 <div>
-                  <span>{item.task}</span>
+                  <span style={{ color: "white" }}>{item.task}</span>
                   <br />
-                  <span>{item.status}</span>
+                  <span style={{ color: "white" }}>{item.status}</span>
                 </div>
               </div>
               <div>
                 <button
-                  onClick={()=>handleUpadateStatus(index,item.id)}
+                  onClick={() => handleUpadateStatus(index, item.id)}
                   style={{ backgroundColor: "blue", marginRight: "10px" }}
                 >
                   complete task
                 </button>
                 <button
-                  onClick={() => dispatch({ type: "DELETE_TASK" })}
+                  onClick={() =>
+                    dispatch({ type: "DELETE_TASK", payload: item.id })
+                  }
                   style={{ backgroundColor: "crimson" }}
                 >
                   delete task
