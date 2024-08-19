@@ -16,7 +16,14 @@ import MyComponent from "./pages/ReactHooks/MyComponent";
 import Togglecomponent from "./pages/ReactHooks/Togglecomponent";
 import CounterOne from "./components/CounterOne";
 import CounterTwo from "./components/CounterTwo";
+import HorizontalScroll from "./components/HorizontalScroll";
 // import FormValidationChatGpt from "./pages/ReactHooks/FormValidationChatGpt";
+import WelcomeComp from "./ClassComponents/WelcomeComp";
+import CreatePortalComp from "./pages/ReactDomAPIs/CreatePortalComp";
+import LazyLoading from "./pages/ReactAPIs/LazyLoading";
+import ErrorBoundary from "./pages/concepts/ErrorBoundary";
+import CountA from "./pages/concepts/CountA";
+
 
 let linksArray = [
   { title: "StateComponent", component: <StateComponent /> },
@@ -32,28 +39,48 @@ let linksArray = [
   { title: "_useImperativeHandle", component: <_useImperativeHandle /> },
   { title: "_useLayoutEffect", component: <_useLayoutEffect /> },
   { title: "FormValidationChatGpt", component: <FormValidationChatGpt /> },
-  { title: "MyComponent", component: <MyComponent /> },
+  { title: "AutoFocusInputWithRef", component: <MyComponent /> },
+  { title: "ClassComponents", component: <WelcomeComp /> },
 ];
 function App() {
   return (
     <div className="card">
+      <ErrorBoundary>
       {/* <StateComponent /> */}
       {/* <ReducerHook/> */}
       {/* <RefHook/> */}
-      {/* <ReactMemo /> */}
       {/* <_useMemo /> */}
       {/* <_useCallBack /> */}
       {/* <IdUseHook/> */}
       {/* <TransitionUseHook/> */}
       {/* <_useDefferedValueHook/> */}
-      {/* <_ForwardRef/> */}
       {/* <_useImperativeHandle /> */}
-      {/* <FormValidationChatGpt /> */}
       {/* <_useLayoutEffect /> */}
       {/* <MyComponent/> */}
+      {/* <FormValidationChatGpt /> */}
+       
+      {/* React APIs */}
+      {/* <_ForwardRef/> */}
+      {/* <ReactMemo /> */}
+      {/* <LazyLoading /> */}
+
+      {/* ReactDOM APIs */}
+      <CreatePortalComp />
+
+      {/* class components */}
+      {/* <WelcomeComp /> */}
+
+      {/* concepts */}
+      {/* // Hoc */}
+      {/* <CounterOne />
+      <CounterTwo /> */}
+      {/* // ErrorBoundary */}
+        {/* <CountA /> */}
+
       {/* <Togglecomponent linksArray={linksArray} /> */}
-      <CounterOne />
-      <CounterTwo />
+      {/* // inifinite scroll */}
+      {/* <HorizontalScroll /> */}
+      </ErrorBoundary>
     </div>
   );
 }

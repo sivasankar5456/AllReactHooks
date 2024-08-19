@@ -1,0 +1,30 @@
+/* src/components/HorizontalScroll.css */
+
+.scroll-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-x: auto;
+    white-space: nowrap;
+    background-color: #f0f0f0;
+  }
+  
+  .scroll-content {
+    display: flex;
+  }
+  
+  .item {
+    flex: none;
+    width: 200px;
+    height: 200px;
+    background-color: #3498db;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  

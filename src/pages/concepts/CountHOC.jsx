@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function CountHOC(OriginalComponent, countValue) {
-    console.log(OriginalComponent)
+    // console.log(OriginalComponent)
   function NewComponent() {
     const [count, setCount] = useState(0);
     const updateCount = () => {

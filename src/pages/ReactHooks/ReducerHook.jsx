@@ -1,13 +1,35 @@
 // //02) advanced example of useReducer hook
 
 import { useReducer, useRef } from "react";
+const initialstate = [
+  {
+    id: 1,
+    task: "watch movie",
+    status: "incomplete",
+  },
+  {
+    id: 2,
+    task: "watch youtube",
+    status: "incomplete",
+  },
+];
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_TASK":
+      // 1
+      // return [...state];
+      // or
+      // 2
       return [...state, action.payload];
 
     case "COMPLETE_TASK":
+       // 1
+      // return [...state];
+
+      // or
+
+      // 2
       state?.forEach((item) => {
         if (item.id == action.payload) {
           item.status = "complete";
@@ -26,35 +48,28 @@ const reducer = (state, action) => {
 };
 
 const ReducerHook = () => {
-  const initialstate = [
-    {
-      id: 1,
-      task: "watch movie",
-      status: "incomplete",
-    },
-    {
-      id: 2,
-      task: "watch youtube",
-      status: "incomplete",
-    },
-  ];
-
-  const [state, dispatch] = useReducer(reducer, initialstate);
+ 
+  const [state, dispatchs] = useReducer(reducer, initialstate); // here instead of dispatch we have given dispatchs it will work but actually we always give dispatch
   const inputRef = useRef("");
 
   const handleAddTask = (e) => {
     // console.log(inputRef.current.value)
     e.preventDefault();
+
+    // // 1
+    
     // state.push({
     //   id: state.length + 1,
     //   task: inputRef.current.value,
     //   status:'incomplete'
     // });
-    // dispatch({ type: "ADD_TASK" });
+    // dispatchs({ type: "ADD_TASK" });
     // inputRef.current.value=""
 
     // or
-    dispatch({
+
+    // // 2
+    dispatchs({
       type: "ADD_TASK",
       payload: {
         id: state.length + 1,
@@ -66,25 +81,28 @@ const ReducerHook = () => {
   };
 
   const handleUpadateStatus = (index, id) => {
-    // state[index].status = "complete"
-    // dispatch({ type: "COMPLETE_TASK" });
-    // or
 
-    dispatch({ type: "COMPLETE_TASK", payload: id });
+    // // 1
+    // state[index].status = "complete"
+    // dispatchs({ type: "COMPLETE_TASK" });
+
+    // or
+    // 2
+    dispatchs({ type: "COMPLETE_TASK", payload: id });
   };
   //   console.log(state);
   return (
     <div className="reuducer-component">
       <h1>useReducer Hook</h1>
       <form onSubmit={handleAddTask}>
-        <span className="">Enter task :</span>{" "}
+        <span className="">Enter task: </span>
         <input type="text" ref={inputRef} />
         <button type="submit">Add task</button>
       </form>
       <div className="display-tasks">
-        {state.map((item, index) => {
+        {state?.map((item, index) => {
           return (
-            <div key={`task_key${item.id}`} className="task-card">
+            <div key={`task_key_${item.id}`} className="task-card">
               <div className="text-wrapper">
                 <div>
                   <label>Task : </label> <br />
@@ -105,7 +123,7 @@ const ReducerHook = () => {
                 </button>
                 <button
                   onClick={() =>
-                    dispatch({ type: "DELETE_TASK", payload: item.id })
+                    dispatchs({ type: "DELETE_TASK", payload: item.id })
                   }
                   style={{ backgroundColor: "crimson" }}
                 >

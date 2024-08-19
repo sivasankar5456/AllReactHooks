@@ -18,23 +18,23 @@ const ReactMemo = () => {
       <MemoStd age={age} />
       <button onClick={() => setAge(age + 3)}>update Age</button>
 
-      <p>
+      <div>
         <span style={{ color: "green" }}>Notes:</span>
         <h1>Memoization</h1>
         * memozation is a optimization technique which is used to improve
         aplication performace. <br />
-        * In rect js we use React.memo & use memo for memoization purpose.
+        * In react js we use React.memo & useMemo for memoization purpose.
         <br /> <br />
         <span>React.memo : </span> <br />
         * it is used to memoize the component <br />
         * React.memo helps us to avoid unnessasary rendering of the components{" "}
         <br />
-        * react.memo check changesonly in props <br />
-        * If there no change in props React.meo remembers the previous value of
+        * react.memo check changes only in props <br />
+        * If there no change in props React.memo remembers the previous value of
         prop and check the current value of prop. <br />* react.memo is a built
         in higher order component.
         {`(because it accepts a component & returns component so its a built in High Order Component)`}
-      </p>
+      </div>
     </div>
   );
 };

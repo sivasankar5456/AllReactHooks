@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import InputField from "../../components/InputField";
 
-const RefHook = () => {
+const RefHook = () => { 
   const inputRefs = useRef([]);
   const [formdetails, setFormdetails] = useState({
     Name: "",
@@ -62,7 +62,6 @@ const RefHook = () => {
             ? ""
             : "please Enter valid Email address";
         break;
-
       default:
         break;
     }
@@ -90,6 +89,7 @@ const RefHook = () => {
 
     if ((Name !== "" || Cell !== "" || Email !== "") && isFormValid()) {
       console.log("Form submitted with data :", formdetails);
+      alert('name:',Name,'\ncell', Cell,'\nemail', Email )
       // Further processing...
     } else {
       console.log("Form submission aborted due to validation errors");
@@ -138,6 +138,9 @@ const RefHook = () => {
         />
         <button type="submit">submit</button>
       </form>
+      <div>
+        
+      </div>
     </div>
   );
 };
@@ -156,3 +159,18 @@ export default RefHook;
 // // Expected output:
 // // "a: somestring"
 // // "b: 42"
+
+
+// // object.values(Error)
+
+// let Error={
+//   Name: "siva",
+//   Cell: "0987654321",
+//   Email: "siva@gmail.com",
+// }
+
+// console.log(object.values(Error))
+
+// Expected output
+// ['siva','0987654321','siva@gmail.com']
+

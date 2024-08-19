@@ -1,12 +1,12 @@
 import React, { useId } from "react";
-
+// this is forwardRef component
 const InputField = (props, ref) => {
-  const inputID = useId();
+  const inputID = useId();  // useID hook is used here you will know about it later 
 
   const {
     label = "Enter input",
     error_message = "",
-    labelClass_name,
+    labelClass_name="",
     input_type = "text",
   } = props;
 
@@ -14,10 +14,10 @@ const InputField = (props, ref) => {
     <div style={{ display: "flex", alignItems: "center" }}>
       <div style={{ textAlign: "right", width: "100px", marginRight: "10px" }}>
         <label htmlFor={inputID} className={labelClass_name}>
-          {label} :{" "}
+          {label}:{" "}
         </label>
       </div>
-      <input type={input_type} id={inputID} {...props} ref={ref} />
+      <input type={input_type} id={inputID} style={{outline:'0',marginRight:'10px'}} {...props} ref={ref} />
       <p style={{ color: "red" }}>{error_message}</p>
     </div>
   );
@@ -44,7 +44,7 @@ export default React.forwardRef(InputField);
 //   return (
 //     <div>
 //       <label htmlFor={inputID} className={labelClass_name}>
-//         {label}{" "}:{" "}
+//         {label}:{" "}
 //       </label>
 //       <input
 //         type={inputType}

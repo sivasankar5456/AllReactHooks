@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import InputField from "../../components/InputField";
-
+// check InputField component for how forward ref hook will work
 const _ForwardRef = () => {
   const [input, setInput] = useState("");
   const [err, setErr] = useState("");
@@ -22,13 +22,13 @@ const _ForwardRef = () => {
   const onInputChange = (e) => {
     setInput(e.target.value);
   };
-  useEffect(() => {  // comment this if you un comment button below which is commented and in child component also uncomment the useImperative handle hook
+  useEffect(() => {  
     inputRef.current.focus();
   }, []);
 
   return (
     <div>
-      <h1>input val : {input}</h1>
+      <h1>input val: {input}</h1>
       <InputField
         ref={inputRef}
         label="cell"

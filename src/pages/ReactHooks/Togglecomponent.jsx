@@ -15,7 +15,7 @@ const Togglecomponent = (props) => {
    navActiveCalssName="navActiveCalssName",
     
   } = props;
-  const [isSelected, seIsSelected] = useState("Home");
+  const [isSelected, seIsSelected] = useState(linksArray[0].title);
 
   const toggleComponentFunc = (componentName) => {
     seIsSelected(componentName);
